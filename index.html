@@ -3,6 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Add these new meta tags -->
+    <meta
+      name="description"
+      content="Dev Asati - App Developer specializing in Flutter, Python, ML, and AI solutions"
+    />
+    <meta
+      name="keywords"
+      content="flutter developer, python developer, machine learning, AI, mobile apps"
+    />
+    <meta name="author" content="Dev Asati" />
+
+    <!-- Mobile optimization -->
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
     <title>Dev Asati</title>
     <link rel="stylesheet" href="style.css" />
     <link
@@ -17,10 +38,10 @@
       <a href="#home" class="logo"> Dev <span>Asati</span> </a>
 
       <!-- Menu Icon for Phones -->
-      <i class="bx bx-menu" id="menu-icon"></i>
+      <i class="bx bx-menu" id="menu-icon" aria-label="Toggle Navigation Menu" role="button" tabindex="0"></i>
 
       <!-- Navbar Options -->
-      <nav class="navbar">
+      <nav class="navbar" role="navigation" aria-label="Main Navigation">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#services">Services</a>
@@ -46,24 +67,24 @@
 
         <!-- Social Icons  -->
         <div class="social-icons">
-          <a href="https://github.com/devasati">
+          <a href="https://github.com/devasati" aria-label="Visit GitHub Profile" rel="noopener noreferrer" target="_blank">
             <i class="bx bxl-github"></i>
           </a>
-          <a href="https://www.linkedin.com/in/dev-asati-b3a702288/">
+          <a href="https://www.linkedin.com/in/dev-asati-b3a702288/" aria-label="Visit LinkedIn Profile" rel="noopener noreferrer" target="_blank">
             <i class="bx bxl-linkedin-square"></i>
           </a>
-          <a href="#" id="whatsappIcon">
+          <a href="#" id="whatsappIcon" aria-label="Contact via WhatsApp">
             <i class="bx bxl-whatsapp"></i>
           </a>
-          <a href="mailto:devasati0605@gmail.com" id="mailIcon">
+          <a href="mailto:devasati0605@gmail.com" id="mailIcon" aria-label="Send Email">
             <i class="bx bx-envelope"></i>
           </a>
         </div>
 
         <!-- Resume and Contact  -->
         <div class="btn-group">
-          <a href="#" class="btn" id="hireBtn">Hire</a>
-          <a href="#contact" class="btn">Contact</a>
+          <a href="#" class="btn" id="hireBtn" role="button" aria-label="Download Resume">Get Resume</a>
+          <a href="#contact" class="btn" role="button" aria-label="Go to Contact Section">Contact</a>
         </div>
       </div>
 
@@ -91,7 +112,7 @@
       </div>
 
       <!-- Popup Modal -->
-      <div id="popupModal" class="modal">
+      <div id="popupModal" class="modal" role="dialog" aria-hidden="true">
         <div class="modal-content">
           <span class="close">&times;</span>
           <p>
@@ -226,15 +247,35 @@
     <section class="contact" id="contact">
       <h2 class="heading">Contact <span>Me</span></h2>
 
-      <form action="#">
+      <form action="#" novalidate>
         <div class="input-group">
           <div class="input-box">
-            <input type="text" placeholder="Full Name" />
-            <input type="email" placeholder="Email" />
+            <input
+              type="text"
+              placeholder="Full Name"
+              required
+              aria-label="Full Name"
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              required
+              aria-label="Email Address"
+            />
           </div>
           <div class="input-box">
-            <input type="tel" placeholder="Phone Number" />
-            <input type="text" placeholder="Subject" />
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              required
+              aria-label="Phone Number"
+            />
+            <input
+              type="text"
+              placeholder="Subject"
+              required
+              aria-label="Subject"
+            />
           </div>
         </div>
 
@@ -255,16 +296,16 @@
     <footer class="footer">
       <!-- Social Icons  -->
       <div class="social-icons">
-        <a href="https://github.com/devasati">
+        <a href="https://github.com/devasati" aria-label="Visit GitHub Profile" rel="noopener noreferrer" target="_blank">
           <i class="bx bxl-github"></i>
         </a>
-        <a href="https://www.linkedin.com/in/dev-asati-b3a702288/">
+        <a href="https://www.linkedin.com/in/dev-asati-b3a702288/" aria-label="Visit LinkedIn Profile" rel="noopener noreferrer" target="_blank">
           <i class="bx bxl-linkedin-square"></i>
         </a>
-        <a href="#" id="whatsappIconfoot">
+        <a href="#" id="whatsappIconfoot" aria-label="Contact via WhatsApp">
           <i class="bx bxl-whatsapp"></i>
         </a>
-        <a href="mailto:devasati0605@gmail.com" id="mailIconfoot">
+        <a href="mailto:devasati0605@gmail.com" id="mailIconfoot" aria-label="Send Email">
           <i class="bx bx-envelope"></i>
         </a>
       </div>
