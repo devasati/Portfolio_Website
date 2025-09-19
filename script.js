@@ -62,8 +62,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const btn = document.getElementById("readMoreBtn");
   const span = document.querySelector(".close");
 
-  // Immediately hide modal to avoid accidental display on load
+  // Ensure modal is hidden and remove any conflicting classes
   if (modal) {
+    modal.classList.remove("show");
     modal.style.display = "none";
   }
 
@@ -82,13 +83,15 @@ document.addEventListener("DOMContentLoaded", function () {
     btn.addEventListener("click", function (e) {
       e.preventDefault();
       if (!isModalOpen) {
-        modal.style.display = "flex";
+        modal.classList.add("show");
+        modal.style.display = "flex"; // Ensure it's visible
         document.body.style.overflow = "hidden"; // Disable background scroll
         isModalOpen = true;
       }
     });
 
     span.addEventListener("click", function () {
+      modal.classList.remove("show");
       modal.style.display = "none";
       document.body.style.overflow = ""; // Re-enable background scroll
       isModalOpen = false;
@@ -96,6 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener("click", function (event) {
       if (event.target === modal) {
+        modal.classList.remove("show");
         modal.style.display = "none";
         document.body.style.overflow = "";
         isModalOpen = false;
@@ -105,6 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Optional: close modal on Escape key press
     document.addEventListener("keydown", function (event) {
       if (event.key === "Escape" && isModalOpen) {
+        modal.classList.remove("show");
         modal.style.display = "none";
         document.body.style.overflow = "";
         isModalOpen = false;
