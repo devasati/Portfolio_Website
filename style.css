@@ -93,12 +93,13 @@ section {
   align-items: center;
   justify-content: center;
   gap: 15rem;
+  flex-direction: row-reverse;
 }
 .home-content {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  text-align: right;
+  align-items: flex-start;
+  text-align: left;
 }
 .home-content h1 {
   font-size: 7rem;
