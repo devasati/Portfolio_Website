@@ -667,6 +667,84 @@ const initTypewritingEffect = () => {
 };
 
 // ============================================
+// SHOOTING STARS EFFECT
+// ============================================
+
+/**
+ * Creates and animates shooting stars in the home section
+ * Generates random shooting stars at varying intervals
+ */
+const initShootingStars = () => {
+  const shootingStarsContainer = document.querySelector(".shooting-stars");
+
+  // Exit if container doesn't exist
+  if (!shootingStarsContainer) return;
+
+  /**
+   * Creates a single shooting star with random properties
+   */
+  const createShootingStar = () => {
+    const star = document.createElement("div");
+    star.className = "shooting-star";
+
+    // Random starting position (top area, center-to-right region)
+    const startX = Math.random() * 40 + 30; // 30-70% from left (center area)
+    const startY = Math.random() * 30; // 0-30% from top (upper area)
+
+    // Random animation duration (1.5-3 seconds)
+    const duration = Math.random() * 1.5 + 1.5;
+
+    // Random delay before appearing (0-2 seconds)
+    const delay = Math.random() * 2;
+
+    // Apply styles
+    star.style.left = `${startX}%`;
+    star.style.top = `${startY}%`;
+    star.style.animationDuration = `${duration}s`;
+    star.style.animationDelay = `${delay}s`;
+
+    // Also apply duration to the tail
+    const tailDuration = duration;
+    star.style.setProperty("--tail-duration", `${tailDuration}s`);
+
+    // Add to container
+    shootingStarsContainer.appendChild(star);
+
+    // Remove star after animation completes
+    setTimeout(() => {
+      star.remove();
+    }, (duration + delay) * 1000);
+  };
+
+  /**
+   * Generates shooting stars at random intervals
+   */
+  const generateStars = () => {
+    // Create initial batch of stars
+    for (let i = 0; i < 4; i++) {
+      setTimeout(() => {
+        createShootingStar();
+      }, i * 800);
+    }
+
+    // Continue creating stars at random intervals
+    setInterval(() => {
+      createShootingStar();
+    }, Math.random() * 2500 + 1500); // Every 1.5-4 seconds (more frequent)
+
+    // Additional sporadic stars for more natural effect
+    setInterval(() => {
+      if (Math.random() > 0.4) {
+        createShootingStar();
+      }
+    }, Math.random() * 4000 + 2000); // Every 2-6 seconds (60% chance)
+  };
+
+  // Start generating stars
+  generateStars();
+};
+
+// ============================================
 // INITIALIZATION - DOM CONTENT LOADED
 // ============================================
 
@@ -698,6 +776,9 @@ const initializeApp = () => {
 
   // Typewriting Effect
   initTypewritingEffect();
+
+  // Shooting Stars Effect
+  initShootingStars();
 };
 
 // Execute initialization when DOM is ready
