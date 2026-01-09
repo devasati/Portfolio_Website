@@ -53,7 +53,7 @@ body {
   width: 100%;
   top: 0;
   left: 0;
-  padding: 2rem 15%;
+  padding: 2rem 10%;
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   display: flex;
@@ -158,7 +158,7 @@ span {
 /* Base Section Styles */
 section {
   min-height: 100vh;
-  padding: 10rem 15%;
+  padding: 10rem 10%;
 }
 
 /* ============================================
@@ -169,7 +169,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15rem;
+  gap: 12rem;
   flex-direction: row-reverse;
 }
 
@@ -191,6 +191,10 @@ section {
 .home-content h3 {
   margin: 1rem 0;
   font-size: 4rem;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  gap: 0.9rem;
 }
 
 .home-content p {
@@ -251,6 +255,13 @@ section {
   box-shadow: 0 0 25px var(--main-color);
   background-color: var(--main-color);
   color: black;
+}
+
+/* Typed.js Cursor Styling */
+.typed-cursor {
+  color: #5dade2;
+  font-size: 4rem; /* Matches h3 font size */
+  margin-left: -0.5rem; /* Pulls cursor closer to the last letter */
 }
 
 /* ============================================
@@ -631,11 +642,11 @@ section {
   }
 
   section {
-    padding: 8rem 8%;
+    padding: 8rem 5%;
   }
 
   .header {
-    padding: 2rem 8%;
+    padding: 2rem 5%;
   }
 
   .home {
@@ -815,11 +826,17 @@ section {
   }
 
   .home-content h1 {
-    font-size: 5rem;
+    font-size: 4.5rem;
   }
 
   .home-content h3 {
-    font-size: 3rem;
+    font-size: 2.5rem;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .typed-cursor {
+    font-size: 2.5rem; /* Must match the H3 font size exactly */
   }
 
   .home-content p {
@@ -993,7 +1010,11 @@ section {
   }
 
   .home-content h3 {
-    font-size: 2.5rem;
+    font-size: 2.1rem;
+  }
+
+  .typed-cursor {
+    font-size: 2.1rem;
   }
 
   .about-content h2 {

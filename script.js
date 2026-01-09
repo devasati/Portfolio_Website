@@ -636,6 +636,37 @@ const initTouchFeedback = () => {
 };
 
 // ============================================
+// TYPEWRITING EFFECT - Typed.js Integration
+// ============================================
+
+/**
+ * Initializes the typewriting effect for the home section
+ * Displays rotating text with a typing animation
+ */
+const initTypewritingEffect = () => {
+  // Check if Typed.js library is loaded
+  if (typeof Typed === "undefined") {
+    console.error("Typed.js library not loaded");
+    return;
+  }
+
+  const element = document.getElementById("element");
+
+  // Exit if element doesn't exist
+  if (!element) return;
+
+  // Initialize Typed.js with configuration
+  new Typed("#element", {
+    strings: ["Software Developer", "App Developer", "Python Developer"],
+    typeSpeed: 70, // Speed of typing in milliseconds
+    backSpeed: 50, // Speed of backspacing
+    backDelay: 2000, // Delay before backspacing
+    loop: true, // Loop the animation
+    cursorChar: "|", // Custom cursor character
+  });
+};
+
+// ============================================
 // INITIALIZATION - DOM CONTENT LOADED
 // ============================================
 
@@ -664,6 +695,9 @@ const initializeApp = () => {
   // Performance & UX
   initLazyAnimations();
   initTouchFeedback();
+
+  // Typewriting Effect
+  initTypewritingEffect();
 };
 
 // Execute initialization when DOM is ready
