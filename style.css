@@ -1,27 +1,53 @@
+/**
+ * ============================================
+ * PORTFOLIO WEBSITE - MAIN STYLESHEET
+ * ============================================
+ * Author: Dev Asati
+ * Description: Complete styling for portfolio website
+ *              Includes responsive design for all devices
+ * ============================================
+ */
+
+/* ============================================
+   GLOBAL STYLES & RESET
+   ============================================ */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
   scroll-behavior: smooth;
-  font-family: "Poppins";
+  font-family: "Poppins", sans-serif;
 }
+
+/* CSS Variables for Easy Theme Management */
 :root {
   --bg-color: #080808;
   --second-bg-color: #101010;
   --text-color: white;
   --main-color: #2ecc71;
+  --error-color: #ff6b6b;
+  --success-color: #2ecc71;
 }
+
+/* Base HTML Settings */
 html {
-  font-size: 60%;
-  /* REMOVED: overflow-x: hidden; - Fix the problem, don't hide it! */
+  font-size: 60%; /* 1rem = 6px for easier rem calculations */
 }
+
+/* Body Base Styles */
 body {
   background: var(--bg-color);
   color: var(--text-color);
   max-width: 100vw;
   overflow-x: hidden;
 }
+
+/* ============================================
+   HEADER & NAVIGATION
+   ============================================ */
+
 .header {
   position: fixed;
   width: 100%;
@@ -35,12 +61,8 @@ body {
   align-items: center;
   z-index: 1000;
 }
-#menu-icon {
-  font-size: 3.5rem;
-  color: var(--main-color);
-  display: none;
-  cursor: pointer;
-}
+
+/* Logo Styles */
 .logo {
   font-size: 3rem;
   color: var(--text-color);
@@ -48,15 +70,20 @@ body {
   cursor: pointer;
   transition: 0.3s ease-in-out;
 }
+
 .logo:hover {
   transform: scale(1.1);
 }
-span {
-  background: linear-gradient(270deg, #f1c40f 0%, #2ecc71 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
+
+/* Mobile Menu Icon (Hidden by Default) */
+#menu-icon {
+  font-size: 3.5rem;
+  color: var(--main-color);
+  display: none;
+  cursor: pointer;
 }
+
+/* Navigation Menu */
 .navbar a {
   font-size: 1.8rem;
   color: var(--text-color);
@@ -65,10 +92,13 @@ span {
   transition: 0.3s ease-in-out;
   border-bottom: 3px solid transparent;
 }
+
 .navbar a:hover {
   color: var(--main-color);
   border-bottom: 3px solid var(--main-color);
 }
+
+/* Contact Me Button */
 .gradient-btn {
   font-size: 1.8rem;
   padding: 1rem 2rem;
@@ -81,13 +111,60 @@ span {
   border: none;
   white-space: nowrap;
 }
+
 .gradient-btn:hover {
   transform: scale(1.05);
 }
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Gradient Text Effect */
+span {
+  background: linear-gradient(270deg, #f1c40f 0%, #2ecc71 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Standard Button Styles */
+.btn {
+  display: inline-block;
+  padding: 1rem 3rem;
+  background-color: var(--main-color);
+  box-shadow: 0 0 25px var(--main-color);
+  border-radius: 3rem;
+  font-size: 1.8rem;
+  color: black;
+  border: 2px solid transparent;
+  font-weight: 600;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color);
+}
+
+/* Section Heading */
+.heading {
+  text-align: center;
+  font-size: 7rem;
+  margin: 5rem 0;
+}
+
+/* Base Section Styles */
 section {
   min-height: 100vh;
   padding: 10rem 15%;
 }
+
+/* ============================================
+   HOME SECTION
+   ============================================ */
+
 .home {
   display: flex;
   align-items: center;
@@ -95,37 +172,47 @@ section {
   gap: 15rem;
   flex-direction: row-reverse;
 }
+
+/* Home Content Area */
 .home-content {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
 }
+
 .home-content h1 {
   font-size: 7rem;
   font-weight: 700;
   margin-top: 1.5rem;
   line-height: 1;
 }
+
 .home-content h3 {
   margin: 1rem 0;
   font-size: 4rem;
 }
+
 .home-content p {
   font-size: 1.8rem;
   font-weight: 500;
   line-height: 1.8;
 }
+
+/* Home Profile Image */
 .home-image img {
   width: 32vw;
   border-radius: 50%;
   box-shadow: 0 0 25px var(--main-color);
   transition: 0.4s ease-in-out;
 }
+
 .home-image img:hover {
   box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color),
     0 0 100px var(--main-color);
 }
+
+/* Social Media Icons */
 .social-icons a {
   display: inline-flex;
   justify-content: center;
@@ -139,43 +226,37 @@ section {
   margin: 3rem 0.5rem;
   transition: 0.3s ease-in-out;
 }
+
 .social-icons a:hover {
   color: var(--text-color);
   background-color: var(--main-color);
   transform: scale(1.2) translateY(-5px);
   box-shadow: 0 0 25px var(--main-color);
 }
+
+/* Button Group (Resume & Contact Buttons) */
 .btn-group {
   display: flex;
   gap: 1.5rem;
 }
-.btn {
-  display: inline-block;
-  padding: 1rem 3rem;
-  background-color: var(--main-color);
-  box-shadow: 0 0 25px var(--main-color);
-  border-radius: 3rem;
-  font-size: 1.8rem;
-  color: black;
-  border: 2px solid transparent;
-  font-weight: 600;
-  transition: 0.3s ease-in-out;
-}
-.btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color);
-}
+
 .btn-group a:nth-of-type(2) {
   background-color: black;
   color: var(--main-color);
   border: 2px solid var(--main-color);
   box-shadow: 0 0 25px transparent;
 }
+
 .btn-group a:nth-of-type(2):hover {
   box-shadow: 0 0 25px var(--main-color);
   background-color: var(--main-color);
   color: black;
 }
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+
 .about {
   display: flex;
   justify-content: center;
@@ -183,217 +264,39 @@ section {
   gap: 10rem;
   background: var(--second-bg-color);
 }
+
+/* About Image */
 .about-img img {
   width: 32vw;
   border-radius: 50%;
   box-shadow: 0 0 25px var(--main-color);
   transition: 0.4s ease-in-out;
 }
+
 .about-img img:hover {
   box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color),
     0 0 100px var(--main-color);
 }
+
+/* About Content */
 .about-content h2 {
   font-size: 6rem;
   text-align: left;
 }
+
 .about-content p {
   font-size: 1.8rem;
+  line-height: 1.8;
 }
+
 .about-content .btn {
   margin: 3rem 0;
 }
-.heading {
-  text-align: center;
-  font-size: 7rem;
-  margin: 5rem 0;
-}
-.services {
-  background-color: var(--bg-color);
-  color: black;
-}
-.services h2 {
-  color: var(--text-color);
-}
-.services-container {
-  display: flex;
-  gap: 2.5rem;
-  padding-bottom: 2rem;
-  scroll-snap-type: x mandatory;
-  scroll-padding: 2rem;
-  scroll-behavior: smooth;
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-.services-container::-webkit-scrollbar {
-  height: 10px;
-}
-.services-container::-webkit-scrollbar-thumb {
-  background-color: var(--text-color);
-  border-radius: 10px;
-}
-.services-box:first-child {
-  margin-left: 2rem;
-}
-.services-box:last-child {
-  margin-right: 2rem;
-}
-.services-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--main-color);
-  height: 500px;
-  border-radius: 3rem;
-  cursor: pointer;
-  border: 5px solid transparent;
-  min-width: 320px;
-  width: 320px;
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-  transition: 0.4s ease-in-out;
-  margin: 1rem 0;
-}
-.services-box:hover {
-  background: var(--second-bg-color);
-  color: var(--main-color);
-  border: 5px solid var(--main-color);
-  transform: scale(1.04);
-}
-.services-info {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  padding: 5rem;
-}
-.services-info h4 {
-  font-size: 4rem;
-  margin: 2rem 0;
-  font-weight: 800;
-}
-.services-info p {
-  font-size: 1.5rem;
-  font-weight: 500;
-  line-height: 1.7;
-}
-.services-info i {
-  font-size: 8rem;
-}
-.projects {
-  background-color: var(--second-bg-color);
-}
-.projects-box {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  place-items: center;
-  gap: 3rem;
-  row-gap: 5rem;
-}
-.project-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background-color: var(--bg-color);
-  border: 2px solid var(--main-color);
-  border-radius: 3rem;
-  gap: 2rem;
-  padding: 5rem 2rem;
-  overflow: hidden;
-  cursor: pointer;
-  box-shadow: 0 0 5px var(--main-color);
-  transition: 0.3s ease;
-}
-.project-card:hover {
-  box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color);
-  transform: scale(1.02);
-}
-.project-card img {
-  max-width: 300px;
-  width: 100%;
-  height: auto;
-  border-radius: 2rem;
-  object-fit: cover;
-}
-.project-card h3 {
-  font-size: 3rem;
-}
-.project-card p {
-  font-size: 1.6rem;
-}
-.contact {
-  background-color: var(--bg-color);
-}
-.contact h2 {
-  margin-bottom: 3rem;
-  color: var(--text-color);
-}
-.contact form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3rem;
-  margin: 5rem 0;
-  text-align: center;
-}
-.contact form .input-box input,
-.contact form textarea {
-  width: 100%;
-  padding: 2.5rem;
-  font-size: 1.8rem;
-  color: var(--text-color);
-  background-color: var(--bg-color);
-  border-radius: 2rem;
-  border: 2px solid var(--main-color);
-  margin: 1.5rem 0;
-  resize: none;
-  box-sizing: border-box;
-}
-.footer {
-  background-color: var(--second-bg-color);
-  padding: 50px 0;
-}
-.footer .social-icons {
-  text-align: center;
-}
-.footer ul {
-  text-align: center;
-  font-size: 1.8rem;
-}
-.footer ul li {
-  display: inline-block;
-  margin-left: 20px;
-}
-.footer ul li a {
-  color: white;
-  border-bottom: 3px solid transparent;
-  transition: 0.3s ease-in-out;
-}
-.footer ul li a:hover {
-  border-bottom: 3px solid var(--main-color);
-}
-.footer .copyright {
-  text-align: center;
-  margin-top: 40px;
-  font-size: 16px;
-}
-::-webkit-scrollbar {
-  width: 15px;
-}
 
-::-webkit-scrollbar-thumb {
-  background-color: var(--main-color);
-  border-radius: 10px;
-}
+/* ============================================
+   READ MORE MODAL
+   ============================================ */
 
-::-webkit-scrollbar-track {
-  background-color: var(--bg-color);
-}
-
-/* === Read More Popup Modal === */
 .modal {
   display: none;
   position: fixed;
@@ -413,6 +316,7 @@ section {
   display: flex;
 }
 
+/* Modal Content Box */
 .modal-content {
   background-color: var(--second-bg-color);
   color: var(--text-color);
@@ -432,6 +336,7 @@ section {
   font-weight: 400;
 }
 
+/* Close Button */
 .close {
   position: absolute;
   top: 15px;
@@ -447,6 +352,7 @@ section {
   transform: scale(1.2);
 }
 
+/* Modal Fade-In Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -459,8 +365,266 @@ section {
 }
 
 /* ============================================
-   TABLET RESPONSIVE (768px and below)
+   SERVICES SECTION
    ============================================ */
+
+.services {
+  background-color: var(--bg-color);
+  color: black;
+}
+
+.services h2 {
+  color: var(--text-color);
+}
+
+/* Services Container (Horizontal Scroll) */
+.services-container {
+  display: flex;
+  gap: 2.5rem;
+  padding-bottom: 2rem;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 2rem;
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+/* Scrollbar Styling */
+.services-container::-webkit-scrollbar {
+  height: 10px;
+}
+
+.services-container::-webkit-scrollbar-thumb {
+  background-color: var(--text-color);
+  border-radius: 10px;
+}
+
+/* Service Card */
+.services-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+  height: 500px;
+  border-radius: 3rem;
+  cursor: pointer;
+  border: 5px solid transparent;
+  min-width: 320px;
+  width: 320px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  transition: 0.4s ease-in-out;
+  margin: 1rem 0;
+}
+
+.services-box:first-child {
+  margin-left: 2rem;
+}
+
+.services-box:last-child {
+  margin-right: 2rem;
+}
+
+.services-box:hover {
+  background: var(--second-bg-color);
+  color: var(--main-color);
+  border: 5px solid var(--main-color);
+  transform: scale(1.04);
+}
+
+/* Service Card Content */
+.services-info {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+}
+
+.services-info h4 {
+  font-size: 4rem;
+  margin: 2rem 0;
+  font-weight: 800;
+}
+
+.services-info p {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+.services-info i {
+  font-size: 8rem;
+}
+
+/* ============================================
+   PROJECTS SECTION
+   ============================================ */
+
+.projects {
+  background-color: var(--second-bg-color);
+}
+
+/* Projects Grid Container */
+.projects-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  place-items: center;
+  gap: 3rem;
+  row-gap: 5rem;
+}
+
+/* Project Card */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--bg-color);
+  border: 2px solid var(--main-color);
+  border-radius: 3rem;
+  gap: 2rem;
+  padding: 5rem 2rem;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 0 5px var(--main-color);
+  transition: 0.3s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color);
+  transform: scale(1.02);
+}
+
+.project-card img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  border-radius: 2rem;
+  object-fit: cover;
+}
+
+.project-card h3 {
+  font-size: 3rem;
+}
+
+.project-card p {
+  font-size: 1.6rem;
+}
+
+/* ============================================
+   CONTACT SECTION
+   ============================================ */
+
+.contact {
+  background-color: var(--bg-color);
+}
+
+.contact h2 {
+  margin-bottom: 3rem;
+  color: var(--text-color);
+}
+
+/* Contact Form */
+.contact form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin: 5rem 0;
+  text-align: center;
+}
+
+/* Form Input Styles */
+.contact form .input-box input,
+.contact form textarea {
+  width: 100%;
+  padding: 2.5rem;
+  font-size: 1.8rem;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  border-radius: 2rem;
+  border: 2px solid var(--main-color);
+  margin: 1.5rem 0;
+  resize: none;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+/* Form Input Focus State */
+.contact form .input-box input:focus,
+.contact form textarea:focus {
+  outline: none;
+  border-color: var(--main-color);
+  box-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.footer {
+  background-color: var(--second-bg-color);
+  padding: 50px 0;
+}
+
+.footer .social-icons {
+  text-align: center;
+}
+
+/* Footer Navigation List */
+.footer ul {
+  text-align: center;
+  font-size: 1.8rem;
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.footer ul li a {
+  color: white;
+  border-bottom: 3px solid transparent;
+  transition: 0.3s ease-in-out;
+}
+
+.footer ul li a:hover {
+  border-bottom: 3px solid var(--main-color);
+}
+
+/* Copyright Text */
+.footer .copyright {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 16px;
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--bg-color);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - TABLET (768px and below)
+   ============================================ */
+
 @media (max-width: 768px) {
   html {
     font-size: 55%;
@@ -493,12 +657,16 @@ section {
 }
 
 /* ============================================
-   LARGE MOBILE / TABLET (max-width: 1285px)
+   RESPONSIVE DESIGN - LARGE MOBILE (1285px and below)
    ============================================ */
+
 @media (max-width: 1285px) {
+  /* Show Mobile Menu Icon */
   #menu-icon {
     display: block;
   }
+
+  /* Mobile Navigation Menu */
   .navbar {
     position: absolute;
     top: 100%;
@@ -511,51 +679,66 @@ section {
     border-bottom: 2px solid var(--main-color);
     display: none;
   }
+
   .navbar a {
     display: block;
     font-size: 2rem;
     margin: 3rem 0;
     color: var(--text-color);
   }
+
   .navbar.active {
     display: block;
   }
+
+  /* Hide Desktop Contact Button */
   .gradient-btn {
     display: none;
   }
+
+  /* Stack Home Section Vertically */
   .home {
     flex-direction: column-reverse;
     margin: 5rem 0;
     gap: 5rem;
   }
+
   .home-content {
     align-items: center;
     text-align: center;
   }
+
   .home-image img {
     width: 56vw;
     max-width: 90%;
   }
+
+  /* Stack About Section Vertically */
   .about {
     flex-direction: column-reverse;
     text-align: center;
   }
+
   .about h2 {
     text-align: center;
     margin: 2rem 0;
   }
+
   .about img {
     width: 52vw;
     max-width: 90%;
   }
+
+  /* Stack Contact Form Vertically */
   .contact form {
     flex-direction: column;
   }
 }
 
 /* ============================================
-   MOBILE RESPONSIVE (600px and below)
+   RESPONSIVE DESIGN - MOBILE (600px and below)
    ============================================ */
+
 @media (max-width: 600px) {
   .services-container {
     gap: 1.5rem;
@@ -596,8 +779,9 @@ section {
 }
 
 /* ============================================
-   PHONE RESPONSIVE (480px and below)
+   RESPONSIVE DESIGN - PHONE (480px and below)
    ============================================ */
+
 @media (max-width: 480px) {
   html {
     font-size: 50%;
@@ -624,6 +808,7 @@ section {
     width: 70%;
   }
 
+  /* Home Section Mobile Adjustments */
   .home {
     gap: 3rem;
     padding-top: 8rem;
@@ -646,12 +831,14 @@ section {
     max-width: 300px;
   }
 
+  /* Social Icons Mobile Size */
   .social-icons a {
     font-size: 2.5rem;
     padding: 0.8rem;
     margin: 2rem 0.3rem;
   }
 
+  /* Button Group Mobile Layout */
   .btn-group {
     flex-direction: column;
     gap: 1rem;
@@ -665,6 +852,7 @@ section {
     text-align: center;
   }
 
+  /* About Section Mobile Adjustments */
   .about {
     gap: 3rem;
   }
@@ -682,11 +870,13 @@ section {
     font-size: 1.6rem;
   }
 
+  /* Headings Mobile Size */
   .heading {
     font-size: 5rem;
     margin: 3rem 0;
   }
 
+  /* Services Mobile Adjustments */
   .services-box {
     min-width: 240px;
     width: 240px;
@@ -709,6 +899,7 @@ section {
     font-size: 5rem;
   }
 
+  /* Projects Mobile Layout */
   .projects-box {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -732,6 +923,7 @@ section {
     font-size: 1.4rem;
   }
 
+  /* Contact Form Mobile Adjustments */
   .contact form {
     gap: 2rem;
     margin: 3rem 0;
@@ -745,9 +937,10 @@ section {
   }
 
   .input-group-2 textarea {
-    min-height: 120px; /* Use CSS height instead of rows attribute */
+    min-height: 120px;
   }
 
+  /* Modal Mobile Adjustments */
   .modal {
     padding: 1rem;
   }
@@ -768,6 +961,7 @@ section {
     right: 15px;
   }
 
+  /* Footer Mobile Adjustments */
   .footer ul li {
     margin-left: 10px;
   }
@@ -778,8 +972,9 @@ section {
 }
 
 /* ============================================
-   EXTRA SMALL PHONES (360px and below)
+   RESPONSIVE DESIGN - EXTRA SMALL (360px and below)
    ============================================ */
+
 @media (max-width: 360px) {
   html {
     font-size: 45%;
